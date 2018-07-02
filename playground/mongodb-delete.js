@@ -20,9 +20,15 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',(err, client) => {
     //     console.log(res);
     // });
     //findOneAndDelete
-    db.collection('Todos').findOneAndDelete({complete: false}).then((res)=>{
-        console.log(res);
-    });
+    // db.collection('Todos').findOneAndDelete({complete: false}).then((res)=>{
+    //     console.log(res);
+    // });
+
+    db.collection('Users').deleteMany({name : 'Andrew'});
+    db.collection('Users').findOneAndDelete({_id: new ObjectID('5b398fd4ea9ed0547077bcc8')})
+                                            .then((res) => {
+                                                console.log(JSON.stringify(res,undefined, 2));
+                                            })
 
 
 
